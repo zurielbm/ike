@@ -6,7 +6,7 @@ LABEL maintainer="zinvoiceshelf"
 # Environment variables
 ENV PUID='1000'
 ENV PGID='1000'
-ENV USER='invoiceshelf'
+ENV USER='zinvoiceshelf'
 ENV PHP_TZ=UTC
 ENV DEBIAN_FRONTEND=noninteractive
 
