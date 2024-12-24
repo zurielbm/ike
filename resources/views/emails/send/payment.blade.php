@@ -28,7 +28,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            Powered by <a class="footer-link" href="https://z.com" target="_blank">ZBM</a>
+            Powered by <a class="footer-link" href="https://kliel.net" target="_blank">ZBM</a>
         @endcomponent
     @endslot
 @endcomponent

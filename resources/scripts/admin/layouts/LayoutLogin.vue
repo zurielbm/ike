@@ -149,14 +149,14 @@ const pageDescription = computed(() => {
     return window.login_page_description
   }
 
-  return 'InvoiceShelf helps you track expenses, record payments & generate beautiful invoices & estimates.'
+  return 'Invoice KliEl.net  helps you track expenses, record payments & generate beautiful invoices & estimates.'
 })
 
 const copyrightText = computed(() => {
   if (window.copyright_text) {
     return window.copyright_text
   }
-  return 'Copyright @ IDEOLOGIX MEDIA DOOEL.'
+  return 'Copyright @ KliEl.'
 })
 
 const loginPageLogo = computed(() => {
