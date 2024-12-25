@@ -51,7 +51,7 @@
         .header-logo {
             /* position: absolute; */
             text-transform: capitalize;
-            color: #7675ff;
+            color: #3ECCBD;
             padding-top: 0px;
         }
 
@@ -271,7 +271,7 @@
             font-size: 14px;
             line-height: 21px;
             text-align: right;
-            color: #5851D8;
+            color: #4CADA4;
             margin-left: 150px;
         }
 

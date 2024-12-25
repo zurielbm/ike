@@ -22,7 +22,7 @@
       <div class="w-full">
         <MainLogo
           v-if="!loginPageLogo"
-          class="block w-48 h-auto max-w-full mb-32 text-primary-500"
+          class="block w-full h-auto max-w-full mb-32 text-primary-500"
         />
 
         <img
@@ -149,7 +149,7 @@ const pageDescription = computed(() => {
     return window.login_page_description
   }
 
-  return 'Invoice KliEl.net  helps you track expenses, record payments & generate beautiful invoices & estimates.'
+  return 'Invoice kliel.net helps you track expenses, record payments & generate beautiful invoices & estimates.'
 })
 
 const copyrightText = computed(() => {

@@ -49,7 +49,7 @@
             margin-top: 20px;
             padding-bottom: 20px;
             text-transform: capitalize;
-            color: #7675ff;
+            color: #3ECCBD;
         }
 
         .content-wrapper {
