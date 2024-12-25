@@ -10,7 +10,7 @@ services:
     ports:
       - 5173:5173
     volumes:
-      - ../:/home/invoiceshelf/app
+      - ../:/home/zuriel/app
     networks:
       - invoiceshelf-dev
 
@@ -21,7 +21,7 @@ services:
       - '80:80'
     volumes:
       - ./nginx/conf.d/dev.conf:/etc/nginx/conf.d/dev.conf
-      - ../:/home/invoiceshelf/app
+      - ../:/home/zuriel/app
     networks:
       - invoiceshelf-dev
 

@@ -4,7 +4,7 @@ echo "############################################"
 echo "### InvoiceShelf Development Environment ###"
 echo "############################################"
 
-cd /home/invoiceshelf/app
+cd /home/zuriel/app
 
 
 # Composer build
@@ -36,7 +36,7 @@ php artisan storage:link
 chmod 775 storage/framework
 chmod 775 storage/logs
 chmod 775 bootstrap/cache
-chown -R ${UID}:${GID} /home/invoiceshelf/app
+chown -R ${UID}:${GID} /home/zuriel/app
 chmod +x artisan
 
 echo "Entrypoint complete."

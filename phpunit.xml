@@ -17,7 +17,8 @@
     <env name="MAIL_MAILER" value="array"/>
     <env name="QUEUE_CONNECTION" value="sync"/>
     <env name="SESSION_DRIVER" value="array"/>
-    <env name="APP_URL" value="http://invoiceshelf.test"/>
+      <env name="APP_URL" value="http://dev.kliel.net"/>
+
   </php>
   <source>
     <include>

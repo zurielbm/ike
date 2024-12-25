@@ -9,10 +9,10 @@ ENV GID=${GID}
 USER root
 
 # Create user/group
-RUN addgroup --gid ${GID} --system invoiceshelf && \
-    adduser --gid ${GID} --system --disabled-password --shell /bin/sh -u ${UID} --home /home/invoiceshelf invoiceshelf && \
-    sed -i "s/user = www-data/user = invoiceshelf/g" /usr/local/etc/php-fpm.d/www.conf && \
-    sed -i "s/group = www-data/group = invoiceshelf/g" /usr/local/etc/php-fpm.d/www.conf
+RUN addgroup --gid ${GID} --system zuriel && \
+    adduser --gid ${GID} --system --disabled-password --shell /bin/sh -u ${UID} --home /home/zuriel zuriel && \
+    sed -i "s/user = www-data/user = zuriel/g" /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i "s/group = www-data/group = zuriel/g" /usr/local/etc/php-fpm.d/www.conf
 
 # Install composer & npm
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
@@ -52,7 +52,7 @@ RUN apt update && apt install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set workdir
-WORKDIR /home/invoiceshelf/app
+WORKDIR /home/zuriel/app
 
 # Copy Files
 COPY entrypoint.sh /entrypoint.sh

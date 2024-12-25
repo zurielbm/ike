@@ -10,12 +10,12 @@ For production grade docker image, please refer to [InvoiceShelf/docker](https:/
 
 ### 1. Hosts configuration
 
-We use `invoiceshelf.test` domain for local development within this environment and you need to adhere to it.
+We use `dev.kliel.net` domain for local development within this environment and you need to adhere to it.
 
 For that purpose you need to edit your OS hosts file or DNS server and add the following line to make the local domain name available on your system.
 
 ```
-127.0.0.1 invoiceshelf.test
+127.0.0.1 dev.kliel.net
 ```
 
 #### 1.1. Windows
@@ -63,7 +63,7 @@ We bundled separate docker-compose.yml file for each database: MySQL, PostgresSQ
 |---------|---------------------------|
 | SQLite3 | docker-compose.sqlite.yml |
 | MariaDB | docker-compose.mysql.yml  |
-| PostgresSQL | dpcler-compose.pgsql.yml  |
+| PostgresSQL | docker-compose.pgsql.yml  |
 
 ### 1. Spinning Up
 
@@ -72,7 +72,7 @@ To **spin up** the environment, run docker compose as follows:
 **Important**: If you are on **Linux** and didn't add the `export` line to your .zshrc/.bashrc file, you need to repeat `step 2` before spinning up, otherwise you will face permissions issues.
 
 ```
-docker compose -f .dev/docker-compose.mysql.yml up --build
+docker compose -f .dev/docker-compose.pgsql.yml up --build
 ```
 
 ### 2. Spinning Down
@@ -80,7 +80,7 @@ docker compose -f .dev/docker-compose.mysql.yml up --build
 To **spin down** the environment, run docker compose as follows:
 
 ```
-docker compose -f .dev/docker-compose.mysql.yml down
+docker compose -f .dev/docker-compose.pgsql.yml down
 ```
 
 ### 3. Working with binaries
@@ -97,11 +97,11 @@ In the `/home/invoiceshelf/app` directory you can find the application root and 
 
 ### 1. Web Server
 
-This dockerized environment uses PHP-FPM and NGINX together to serve the website `invoiceshelf.test`
+This dockerized environment uses PHP-FPM and NGINX together to serve the website `dev.kliel.net`
 
 Both NGINX and PHP-FPM are configured with optimal settings for development. Please don't use this in production.
 
-**URL**: http://invoiceshelf.test/
+**URL**: http://dev.kliel.net/
 
 ### 2. Databases
 
@@ -125,7 +125,7 @@ Adminer is UI tool for viewing the database contents and executing queries.
 
 It supports MySQL, PostgreSQL, SQLite.
 
-**URL**: http://invoiceshelf.test:8080
+**URL**: http://dev.kliel.net:8080
 
 #### MySQL/PostgresSQL
 
@@ -158,7 +158,7 @@ To utilize Mailpit, use the following credentials:
 | **FROM MAIL NAME**  | your choice |
 
 
-**URL**: http://invoiceshelf.test:8025
+**URL**: http://dev.kliel.net:8025
 
 ---
 
