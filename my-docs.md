@@ -10,8 +10,10 @@ yarn build
 
 ## Docker
 
+only works in windows (IDK why)
+
 ```
-docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.0 . 
+docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.9 . 
 ```
 
 Docker Build Files
