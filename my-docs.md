@@ -111,3 +111,13 @@ new default: 3ECCBD
 Default: E5FFFC
 
 [browserconfig.xml](public/favicons/browserconfig.xml)
+
+Default: 3ECCBD
+
+[estimate1.blade.php](resources/views/app/pdf/estimate/estimate1.blade.php)
+
+[estimate2.blade.php](resources/views/app/pdf/estimate/estimate2.blade.php)
+
+[estimate3.blade.php](resources/views/app/pdf/estimate/estimate3.blade.php)
+
+[invoice3.blade.php](resources/views/app/pdf/invoice/invoice3.blade.php)

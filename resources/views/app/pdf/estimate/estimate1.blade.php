@@ -49,7 +49,7 @@
 
             margin-top: 20px;
             text-transform: capitalize;
-            color: #817AE3;
+            color: #3ECCBD;
         }
 
         .header {
