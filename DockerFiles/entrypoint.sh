@@ -15,6 +15,7 @@ echo "
 ike Branch:   $branch ($target)
 ike Commit:   $shorthash
 ike Version:  $version
+ike LongHash: $longhash
 -------------------------------------
 Link to commit: https://github.com/zurielbm/ike/commit/$longhash
 -------------------------------------"
