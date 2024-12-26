@@ -20,9 +20,11 @@ Docker Build Files
 
 [DockerFiles](DockerFiles)
 
+only works in windows (IDK why)
+
 cmd
 ```bash
-docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.5 ./DockerFiles/
+docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.10 ./DockerFiles/
 
 ```
 
