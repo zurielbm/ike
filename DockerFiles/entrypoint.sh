@@ -4,11 +4,11 @@ set -e
 
 # Read Last commit hash from .git
 # This prevents installing git, and allows display of commit
-branch=$(ls /var/www/html/ZInvoiceShelf/.git/refs/heads)
-read -r longhash < /var/www/html/ZInvoiceShelf/.git/refs/heads/$branch
+branch=$(ls /var/www/html/ike/.git/refs/heads)
+read -r longhash < /var/www/html/ike/.git/refs/heads/$branch
 shorthash=$(echo $longhash |cut -c1-7)
-target=$(</var/www/html/ZInvoiceShelf/docker_target)
-version=$(head -n 1 /var/www/html/ZInvoiceShelf/version.md)
+target=$(</var/www/html/ike/docker_target)
+version=$(head -n 1 /var/www/html/ike/version.md)
 
 echo "
 -------------------------------------
@@ -29,22 +29,22 @@ echo "**** Make sure the /conf /data folders exist ****"
 [ ! -d /data ] && mkdir -p /data
 
 echo "**** Link storage ****"
-[ ! -L /var/www/html/ZInvoiceShelf/storage ] && \
-	cp -r /var/www/html/ZInvoiceShelf/storage/* /data && \
-	rm -r /var/www/html/ZInvoiceShelf/storage && \
-	ln -s /data /var/www/html/ZInvoiceShelf/storage
+[ ! -L /var/www/html/ike/storage ] && \
+	cp -r /var/www/html/ike/storage/* /data && \
+	rm -r /var/www/html/ike/storage && \
+	ln -s /data /var/www/html/ike/storage
 
 echo "**** Expose storage ****"
-[ ! -L /var/www/html/ZInvoiceShelf/public/storage ] && \
-	ln -s /data/app/public /var/www/html/ZInvoiceShelf/public/storage
+[ ! -L /var/www/html/ike/public/storage ] && \
+	ln -s /data/app/public /var/www/html/ike/public/storage
 
-cd /var/www/html/ZInvoiceShelf
+cd /var/www/html/ike
 
 if [ "$DB_CONNECTION" = "sqlite" ] || [ -z "$DB_CONNECTION" ] ; then
   echo "**** Configure SQLite3 database ****"
   if [ ! -n "$DB_DATABASE" ]; then
     echo "**** DB_DATABSE not defined. Fall back to default /database/database.sqlite location ****"
-    DB_DATABASE='/var/www/html/ZInvoiceShelf/database/database.sqlite'
+    DB_DATABASE='/var/www/html/ike/database/database.sqlite'
   fi
   DB_FILENAME=$(basename ${DB_DATABASE});
   if [ ! -e "/conf/$DB_FILENAME" ]; then
@@ -62,9 +62,9 @@ fi
 
 echo "**** Copy the .env to /conf ****" && \
 [ ! -e /conf/.env ] && \
-	sed 's|^#DB_DATABASE=$|DB_DATABASE='$DB_DATABASE'|' /var/www/html/ZInvoiceShelf/.env.example > /conf/.env
-[ ! -L /var/www/html/ZInvoiceShelf/.env ] && \
-	ln -s /conf/.env /var/www/html/ZInvoiceShelf/.env
+	sed 's|^#DB_DATABASE=$|DB_DATABASE='$DB_DATABASE'|' /var/www/html/ike/.env.example > /conf/.env
+[ ! -L /var/www/html/ike/.env ] && \
+	ln -s /conf/.env /var/www/html/ike/.env
 echo "**** Inject .env values ****" && \
 	/inject.sh
 
@@ -106,7 +106,7 @@ if [ -n "$SKIP_PERMISSIONS_CHECKS" ] && [ "${SKIP_PERMISSIONS_CHECKS,,}" = "yes"
 else
 	echo "**** Set Permissions ****"
 	# Set ownership of directories, then files and only when required.
-	find /var/www/html/ZInvoiceShelf/bootstrap -type d \( ! -perm -ug+w -o ! -perm -ugo+rX -o ! -perm -g+s \) -exec chmod -R ug+w,ugo+rX,g+s \{\} \;
+	find /var/www/html/ike/bootstrap -type d \( ! -perm -ug+w -o ! -perm -ugo+rX -o ! -perm -g+s \) -exec chmod -R ug+w,ugo+rX,g+s \{\} \;
 	find /conf /data -type d \( ! -user "$USER" -o ! -group "$USER" \) -exec chown -R "$USER":"$USER" \{\} \;
 	find /conf /data \( ! -user "$USER" -o ! -group "$USER" \) -exec chown "$USER":"$USER" \{\} \;
 	find /conf /data -type d \( ! -perm -ug+w -o ! -perm -ugo+rX -o ! -perm -g+s \) -exec chmod -R ug+w,ugo+rX,g+s \{\} \;

@@ -1,12 +1,12 @@
 FROM debian:bookworm-slim as base
 
 # Set version label
-LABEL maintainer="zinvoiceshelf"
+LABEL maintainer="ike"
 
 # Environment variables
 ENV PUID='1000'
 ENV PGID='1000'
-ENV USER='zinvoiceshelf'
+ENV USER='ike'
 ENV PHP_TZ=UTC
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -56,18 +56,18 @@ RUN \
     addgroup --gid "$PGID" "$USER" && \
     adduser --gecos '' --no-create-home --disabled-password --uid "$PUID" --gid "$PGID" "$USER" && \
     cd /var/www/html && \
-    LATEST_VERSION=$(curl -sX GEThttps://api.github.com/repos/zurielbm/ZInvoiceShelf/releases/latest | awk '/tag_name/{print $4;exit}' FS='[""]') && \
+    LATEST_VERSION=$(curl -sX GEThttps://api.github.com/repos/zurielbm/zinvoiceshelf/releases/latest | awk '/tag_name/{print $4;exit}' FS='[""]') && \
     if [ "$TARGET" = "release" ] ; then RELEASE_TAG="-b $LATEST_VERSION" ; \
     elif [ "$BRANCH" != "master" ] ; then RELEASE_TAG="-b $BRANCH" ; fi && \
-    git clone --depth 1 $RELEASE_TAG https://github.com/zurielbm/ZInvoiceShelf.git && \
-    mv ZInvoiceShelf/.git/refs/heads/$BRANCH ZInvoiceShelf/$BRANCH || cp ZInvoiceShelf/.git/HEAD ZInvoiceShelf/$BRANCH && \
-    mv ZInvoiceShelf/.git/HEAD ZInvoiceShelf/HEAD && \
-    rm -r ZInvoiceShelf/.git/* && \
-    mkdir -p ZInvoiceShelf/.git/refs/heads && \
-    mv ZInvoiceShelf/HEAD ZInvoiceShelf/.git/HEAD && \
-    mv ZInvoiceShelf/$BRANCH ZInvoiceShelf/.git/refs/heads/$BRANCH && \
-    echo "$TARGET" > /var/www/html/ZInvoiceShelf/docker_target && \
-    cd /var/www/html/ZInvoiceShelf && \
+    git clone --depth 1 $RELEASE_TAG https://github.com/zurielbm/zinvoiceshelf.git && \
+    mv ike/.git/refs/heads/$BRANCH ike/$BRANCH || cp ike/.git/HEAD ike/$BRANCH && \
+    mv ike/.git/HEAD ike/HEAD && \
+    rm -r ike/.git/* && \
+    mkdir -p ike/.git/refs/heads && \
+    mv ike/HEAD ike/.git/HEAD && \
+    mv ike/$BRANCH ike/.git/refs/heads/$BRANCH && \
+    echo "$TARGET" > /var/www/html/ike/docker_target && \
+    cd /var/www/html/ike && \
     composer install --prefer-dist && \
     find . -wholename '*/[Tt]ests/*' -delete && \
     find . -wholename '*/[Tt]est/*' -delete && \
@@ -75,8 +75,8 @@ RUN \
     rm    storage/framework/sessions/* 2> /dev/null || true && \
     rm    storage/framework/views/* 2> /dev/null || true && \
     rm    storage/logs/* 2> /dev/null || true && \
-    chown -R www-data:www-data /var/www/html/ZInvoiceShelf && \
-    echo "* * * * * www-data cd /var/www/html/ZInvoiceShelf && php artisan schedule:run >> /dev/null 2>&1" >> /etc/crontab && \
+    chown -R www-data:www-data /var/www/html/ike && \
+    echo "* * * * * www-data cd /var/www/html/ike && php artisan schedule:run >> /dev/null 2>&1" >> /etc/crontab && \
     apt-get purge -y --autoremove git composer && \
     apt-get clean -qy && \
     rm -rf /var/lib/apt/lists/*
@@ -89,14 +89,14 @@ RUN mkdir /app
 
 RUN mkdir -p  /app
 WORKDIR /app
-COPY --from=base /var/www/html/ZInvoiceShelf /app
+COPY --from=base /var/www/html/ike /app
 
 RUN npm install
 RUN yarn build
 
 # Get the static assets built in the previous step
 FROM base
-COPY --from=static_builder --chown=www-data:www-data /app/public /var/www/html/ZInvoiceShelf/public
+COPY --from=static_builder --chown=www-data:www-data /app/public /var/www/html/ike/public
 
 # Add custom Nginx configuration
 COPY default.conf /etc/nginx/nginx.conf
@@ -104,7 +104,7 @@ COPY default.conf /etc/nginx/nginx.conf
 EXPOSE 80
 VOLUME /conf /data
 
-WORKDIR /var/www/html/ZInvoiceShelf
+WORKDIR /var/www/html/ike
 
 COPY entrypoint.sh inject.sh /
 

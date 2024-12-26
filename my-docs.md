@@ -10,7 +10,19 @@ yarn build
 
 ## Docker
 
-docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.0 .
+```
+docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.0 . 
+```
+
+Docker Build Files
+
+[DockerFiles](DockerFiles)
+
+cmd
+```bash
+docker build -t zurielbax/ike:latest -t zurielbax/ike:v0.1.5 ./DockerFiles/
+
+```
 
 # Edit color and theme
 
