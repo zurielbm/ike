@@ -125,3 +125,28 @@ Default: 3ECCBD
 [estimate3.blade.php](resources/views/app/pdf/estimate/estimate3.blade.php)
 
 [invoice3.blade.php](resources/views/app/pdf/invoice/invoice3.blade.php)
+
+Default: 2E7A72
+
+[invoice1.blade.php](resources/views/app/pdf/invoice/invoice1.blade.php)
+
+[invoice2.blade.php](resources/views/app/pdf/invoice/invoice2.blade.php)
+
+[invoice3.blade.php](resources/views/app/pdf/invoice/invoice3.blade.php)
+
+[estimate1.blade.php](resources/views/app/pdf/estimate/estimate1.blade.php)
+
+[estimate2.blade.php](resources/views/app/pdf/estimate/estimate2.blade.php)
+
+[estimate3.blade.php](resources/views/app/pdf/estimate/estimate3.blade.php)
+
+[payment.blade.php](resources/views/app/pdf/payment/payment.blade.php)
+
+# My Colors
+2E7A72
+3ECCBD
+E5FFFC
+4CADA4
+
+PDF:
+78BBB7

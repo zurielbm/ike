@@ -37,7 +37,7 @@
         .header-logo {
 
             text-transform: capitalize;
-            color: #3ECCBD;
+            color: #2E7A72;
             padding-top: 0px;
         }
 
@@ -154,7 +154,7 @@
             font-size: 12px;
             line-height: 18px;
             text-align: left;
-            color: #55547A
+            color: #2E7A72
         }
 
         .attribute-value {
@@ -237,7 +237,7 @@
 
         .total-table-attribute-label {
             font-size: 12px;
-            color: #55547A;
+            color: #2E7A72;
             text-align: left;
             padding-left: 10px;
         }

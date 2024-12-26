@@ -159,7 +159,7 @@
             font-size: 12px;
             line-height: 18px;
             margin-bottom: 0px;
-            color: #55547A;
+            color: #2E7A72;
         }
 
         .billing-address-name {
@@ -193,7 +193,7 @@
             font-size: 12px;
             line-height: 18px;
             text-align: left;
-            color: #55547A
+            color: #2E7A72
         }
 
         .attribute-value {

@@ -49,7 +49,7 @@
             margin-top: 20px;
             padding-bottom: 20px;
             text-transform: capitalize;
-            color: #3ECCBD;
+            color: #2E7A72;
         }
 
         .content-wrapper {
@@ -96,7 +96,7 @@
             line-height: 18px;
             padding-right: 40px;
             text-align: left;
-            color: #55547A;
+            color: #2E7A72;
         }
 
         .attribute-value {
@@ -175,7 +175,7 @@
             text-align: center;
             color: rgba(0, 0, 0, 0.85);
             padding: 5px;
-            color: #55547A;
+            color: #2E7A72;
         }
 
         tr.item-table-heading-row th {
@@ -221,7 +221,7 @@
 
         .total-table-attribute-label {
             font-size: 13px;
-            color: #55547A;
+            color: #2E7A72;
             text-align: left;
             padding-left: 10px;
         }

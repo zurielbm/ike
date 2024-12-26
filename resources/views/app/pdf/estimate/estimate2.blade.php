@@ -28,7 +28,7 @@
         /* -- Header -- */
 
         .header-container {
-            background: #3ECCBD;
+            background: #78BBB7; /*-- Header Container Color --*/
             position: absolute;
             width: 100%;
             height: 141px;
@@ -299,7 +299,7 @@
 
         .total-table-attribute-label {
             font-size: 12px;
-            color: #55547A;
+            color: #2E7A72;
             text-align: left;
             padding-left: 10px;
         }
