@@ -172,7 +172,7 @@ import { useUserStore } from '@/scripts/admin/stores/user'
 import CompanyModal from '@/scripts/admin/components/modal-components/CompanyModal.vue'
 import abilities from '@/scripts/admin/stub/abilities'
 
-const maxCompaniesAllowed = import.meta.env.APP_MAX_COMPANIES_ALLOWED
+const maxCompaniesAllowed = import.meta.env.VITE_APP_MAX_COMPANIES_ALLOWED;
 
 const companyStore = useCompanyStore()
 const modalStore = useModalStore()

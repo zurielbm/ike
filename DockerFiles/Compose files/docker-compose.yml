@@ -42,6 +42,7 @@ services:
       APP_ENV: local
       APP_DEBUG: true
       APP_URL: 'https://demoinv.2.zurielbm.com'
+      VITE_APP_MAX_COMPANIES_ALLOWED: 1
       DB_CONNECTION: pgsql
       DB_HOST: db
       DB_PORT: 5432
