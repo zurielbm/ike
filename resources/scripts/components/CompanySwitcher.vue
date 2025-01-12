@@ -134,7 +134,7 @@
           </div>
         </div>
         <div
-          v-if="userStore.currentUser.is_owner"
+          v-if="userStore.currentUser.is_owner && companyStore.companies.length < maxCompaniesAllowed"
           class="
             flex
             items-center
@@ -172,6 +172,8 @@ import { useUserStore } from '@/scripts/admin/stores/user'
 import CompanyModal from '@/scripts/admin/components/modal-components/CompanyModal.vue'
 import abilities from '@/scripts/admin/stub/abilities'
 
+const maxCompaniesAllowed = import.meta.env.APP_MAX_COMPANIES_ALLOWED
+
 const companyStore = useCompanyStore()
 const modalStore = useModalStore()
 const route = useRoute()
@@ -207,6 +209,7 @@ function addNewCompany() {
     size: 'sm',
   })
 }
+
 
 async function changeCompany(company) {
   await companyStore.setSelectedCompany(company)
